@@ -10,6 +10,8 @@
             <th>First_Name</th>
             <th>Last_Name</th>
             <th>Age</th>
+            <th>Update</th>
+            <th>Delete</th>
             </tr>
         </thead>
     
@@ -37,20 +39,17 @@
         }
         ?>
        
-        <tr ><th>3</th>
-            <th>Ravi</th>
-            <th>Chandar</th>
-            <th>32</th>
-        </tr>
-        <tr ><th>4</th>
-            <th>Shivam</th>
-            <th>Chandar</th>
-            <th>36</th>
+        
         </tbody>
     </table>
     <?php 
     if(isset($_GET['message'])){
         echo "<h6>".$_GET['message']."</h6>";
+    }
+    ?>
+    <?php 
+    if(isset($_GET['insert_msg'])){
+        echo "<h6>".$_GET['insert_msg']."</h6>";
     }
     ?>
     <form action ="insert_data.php" method="POST">
