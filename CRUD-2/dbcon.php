@@ -10,5 +10,5 @@ if(!$connection){
 }else{
     echo "Connection successful";
 }
-// this is for experiment
+ 
 ?>
