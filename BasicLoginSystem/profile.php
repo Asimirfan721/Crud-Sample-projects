@@ -2,13 +2,13 @@
 session_start();
 include 'db.php';
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) { // condision if username is available
     header("Location: index.php");
     exit;
 }
 
-$username = $_SESSION['username'];
-$sql = "SELECT * FROM users WHERE username='$username'";
+$username = $_SESSION['username']; 
+$sql = "SELECT * FROM users WHERE username='$username'"; // user name matcches
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
