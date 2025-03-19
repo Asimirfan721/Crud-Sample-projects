@@ -3,11 +3,11 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
-}
+}   
 
 $conn = new mysqli("localhost", "root", "", "user_db");
 $username = $_SESSION['username'];
-
+// this is a comment 
 // Check if the user is an admin
 $sql = "SELECT role FROM users WHERE username='$username'";
 $result = $conn->query($sql);
