@@ -5,14 +5,14 @@ session_start();
 //check if form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //GET FORM DATA AND REMOVE UNNECESSARY SPACES
-    $username = trim($_POST["username"]);
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
+    $username = trim($_POST["username"]); // user name 
+    $email = trim($_POST["email"]); // email 
+    $password = trim($_POST["password"]); // password 
     $role = isset($_POST['role']) ? $_POST['role'] : 'user';  // Default role is 'user'
     //$confirm_password = trim($_POST["confirm_password"]);
     //validate username 
-    if(empty($username) || empty($password) || empty($email)){
-        echo "All fields are required";
+    if(empty($username) || empty($password) || empty($email)){ // empty 
+        echo "All fields are required"; // 
     }
     else {
         //hash the password for security 
