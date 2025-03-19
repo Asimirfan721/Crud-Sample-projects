@@ -2,17 +2,17 @@
 
 <?php 
 //login page 
-session_start();
+session_start(); // session
 
 //check if form is submitted
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //GET FORM INPUT VALUES AND REMOVE UNCESSARY SPACES
-    $email= trim($_POST["email"]);
+    $email= trim($_POST["email"]); // email required
     $password = trim($_POST["password"]);
 }
 
-$email = isset($email) ? $email : '';
+$email = isset($email) ? $email : ''; 
 $password = isset($password) ? $password : '';
 
 if(empty($email) || empty ($password)){
@@ -25,7 +25,7 @@ if(empty($email) || empty ($password)){
         if($conn->connect_error){
             die("connection failed: " . $conn->connect_error);
         }
-        $sql ="SELECT id, username, password From users where email ='$email'";
+        $sql ="SELECT id, username, password From users where email ='$email'"; // sql query matches
         $result = $conn->query($sql);
         // check if user exists
 
