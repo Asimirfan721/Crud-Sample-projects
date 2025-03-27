@@ -4,5 +4,5 @@ namespace App\Http\Controllers;
 
 abstract class Controller
 {
-    // hello is there anyone here 
+    // hello is there anyone here h
 }
