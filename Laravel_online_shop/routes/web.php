@@ -6,4 +6,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// route::post*
+// route::post* here it is
