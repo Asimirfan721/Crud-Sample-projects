@@ -20,7 +20,7 @@ if(empty($email) || empty ($password)){
     }
     else{
         //connect to the database 
-        $conn = new Mysqli("localhost", "root", "", "user_db");
+        $conn = new Mysqli("localhost", "root", "", "user_db"); // database connection
         //cehc databasee connection 
         if($conn->connect_error){
             die("connection failed: " . $conn->connect_error);
