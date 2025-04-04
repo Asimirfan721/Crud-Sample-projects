@@ -27,7 +27,7 @@ if(empty($email) || empty ($password)){
         }
         $sql ="SELECT id, username, password From users where email ='$email'"; // sql query matches
         $result = $conn->query($sql);
-        // check if user exists
+        // check if user exists here
 
         if($result->num_rows == 1){
             //fetch the user details
