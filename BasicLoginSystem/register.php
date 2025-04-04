@@ -3,7 +3,7 @@
 session_start();
 
 //check if form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){   
     //GET FORM DATA AND REMOVE UNNECESSARY SPACES
     $username = trim($_POST["username"]); // user name 
     $email = trim($_POST["email"]); // email 
