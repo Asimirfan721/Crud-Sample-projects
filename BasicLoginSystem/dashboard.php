@@ -11,7 +11,7 @@ $username = $_SESSION['username'];
 $sql = "SELECT role FROM users WHERE username='$username'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$role = $row['role']; // Get user role
+$role = $row['role']; // Get user role admin
  // closing 
 $conn->close();
 ?>
