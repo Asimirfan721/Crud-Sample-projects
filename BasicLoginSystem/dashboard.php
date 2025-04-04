@@ -4,7 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
- // dashboard view 
+ // dashboard view  here
 $conn = new mysqli("localhost", "root", "", "user_db");
 $username = $_SESSION['username'];
 // this is a comment
