@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "user_db"); // data base connection
+$conn = new mysqli("localhost", "root", "", "user_db"); // data base connection delete
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
