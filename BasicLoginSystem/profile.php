@@ -2,7 +2,7 @@
 session_start();
 include 'db.php';
 
-if (!isset($_SESSION['username'])) { // condision if username is available
+if (!isset($_SESSION['username'])) { // condision if username is available here
     header("Location: index.php");
     exit;
 }
