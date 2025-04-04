@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 
 $conn = new mysqli("localhost", "root", "", "user_db");
 $username = $_SESSION['username'];
-// this is a comment 
+// this is a comment  admin
 // Check if the user is an admin
 $sql = "SELECT role FROM users WHERE username='$username'";
 $result = $conn->query($sql);
