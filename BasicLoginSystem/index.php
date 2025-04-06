@@ -3,7 +3,7 @@ session_start(); // Start session
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form inputs and trim spaces
-    $email = trim($_POST["email"]);
+    $email = trim($_POST["email"]);   // email
     $password = trim($_POST["password"]);
 
     if (empty($email) || empty($password)) {
