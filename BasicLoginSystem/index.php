@@ -1,66 +1,55 @@
-
-
 <?php 
-//login page 
-session_start(); // session
+session_start(); // Start session
 
-//check if form is submitted
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    //GET FORM INPUT VALUES AND REMOVE UNCESSARY SPACES
-    $email= trim($_POST["email"]); // email required
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form inputs and trim spaces
+    $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
-}
 
-$email = isset($email) ? $email : ''; 
-$password = isset($password) ? $password : '';
+    if (empty($email) || empty($password)) {
+        echo "All fields are required.";
+    } else {
+        // Connect to the database
+        $conn = new mysqli("localhost", "root", "", "user_db");
 
-if(empty($email) || empty ($password)){
-    echo "All fields are Required";
-    }
-    else{
-        //connect to the database 
-        $conn = new Mysqli("localhost", "root", "", "user_db"); // database connection
-        //cehc databasee connection 
-        if($conn->connect_error){
-            die("connection failed: " . $conn->connect_error);
+        // Check DB connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        $sql ="SELECT id, username, password From users where email ='$email'"; // sql query matches
-        $result = $conn->query($sql);
-        // check if user exists here
 
-        if($result->num_rows == 1){
-            //fetch the user details
+        // Prepared statement to prevent SQL injection
+        $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if user exists   
+        if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
             $hashedPassword = $row["password"];
-            // verify the entered password with the hashed password which is store in database
-            if(password_verify($password, $hashedPassword)){
-                //Store user data in session variable 
+
+            if (password_verify($password, $hashedPassword)) {
                 $_SESSION["user_id"] = $row["id"];
                 $_SESSION["username"] = $row["username"];
-                //redirect to dashboard or home page 
                 header("Location: dashboard.php");
                 exit();
-            
-                $conn->close();
-    
             } else {
-                echo "Invalid email  ";
+                echo "Invalid password.";
             }
         } else {
-            echo "Invalid   password";
+            echo "Invalid email.";
         }
+
+        $stmt->close();
         $conn->close();
     }
-    ?>
-        
-
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
@@ -73,7 +62,7 @@ if(empty($email) || empty ($password)){
         <input type="password" name="password" required><br><br>
 
         <button type="submit">Login</button>
-        <a href="register.php">You don't have an account? Register here</a>
+        <a href="register.php">Don't have an account? Register here</a>
     </form>
 </body>
 </html>
