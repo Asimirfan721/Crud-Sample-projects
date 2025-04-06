@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else {
         //hash the password for security 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        //CONNECTION WITH DATABASE, UPDATE CREDETNTIALS ACCORDINGLY 
+        //CONNECTION WITH DATABASE, UPDATE CREDETNTIALS ACCORDINGLY     
         $conn =  new mysqli("localhost", "root", "", "user_db");
         //check database connection
 
