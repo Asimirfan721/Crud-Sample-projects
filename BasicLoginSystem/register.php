@@ -5,7 +5,7 @@ session_start();
 //check if form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){   
     //GET FORM DATA AND REMOVE UNNECESSARY SPACES   
-    $username = trim($_POST["username"]); // user name 
+    $username = trim($_POST["username"]); // user name is resolved here
     $email = trim($_POST["email"]); // email 
     $password = trim($_POST["password"]); // password 
     $role = isset($_POST['role']) ? $_POST['role'] : 'user';  // Default role is 'user'
