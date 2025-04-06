@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) { // condision if username is available here
     exit;
 }
 
-$username = $_SESSION['username']; 
+$username = $_SESSION['username'];    
 $sql = "SELECT * FROM users WHERE username='$username'"; // user name matcches
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
