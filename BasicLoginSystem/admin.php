@@ -5,7 +5,7 @@ if (!isset($_SESSION['username'])) {  // username
     exit();
 }   
 
-$conn = new mysqli("localhost", "root", "", "user_db"); // Database connection
+$conn = new mysqli("localhost", "root", "", "user_db"); // Database connection  restoreds
 $username = $_SESSION['username'];
 // this is a comment  admin
 // Check if the user is an admin
