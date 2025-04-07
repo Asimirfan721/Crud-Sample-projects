@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>CRUD APP IN PHP</h1>
+    <a href="create.php">Create</a>
     
 </body>
 </html>
