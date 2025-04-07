@@ -14,7 +14,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 if ($row['role'] !== 'admin') {
-    echo "Access Denied! You are not an admin.";
+    echo "Access Denied! You are not an admin."; // Redirect to a different page or show an error message
     exit();
 }
 
