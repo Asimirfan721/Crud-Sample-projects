@@ -9,7 +9,7 @@ $conn = new mysqli("localhost", "root", "", "user_db"); // Database connection
 $username = $_SESSION['username'];
 
 // Check if the user is an admin
-$sql = "SELECT role FROM users WHERE username='$username'";
+$sql = "SELECT role FROM users WHERE username='$username'"; // Assuming 'role' is a column in your users tableg
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
