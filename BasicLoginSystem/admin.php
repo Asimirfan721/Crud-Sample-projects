@@ -5,7 +5,7 @@ if (!isset($_SESSION['username'])) {  // username
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "user_db");
+$conn = new mysqli("localhost", "root", "", "user_db"); // Database connection
 $username = $_SESSION['username'];
 
 // Check if the user is an admin
