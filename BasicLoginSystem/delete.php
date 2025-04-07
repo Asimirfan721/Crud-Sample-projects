@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "user_db");
+$conn = new mysqli("localhost", "root", "", "user_db"); // data base connection delete
 
 // Check if the user is logged in
 if (!isset($_SESSION['username'])) {
@@ -10,8 +10,8 @@ if (!isset($_SESSION['username'])) {
 
 // Get user role
 $username = $_SESSION['username'];
-$sql = "SELECT role FROM users WHERE username='$username'";
-$result = $conn->query($sql);
+$sql = "SELECT role FROM users WHERE username='$username'"; // sql query 
+$result = $conn->query($sql); // sql query 
 $row = $result->fetch_assoc();
 $role = $row['role'];
 

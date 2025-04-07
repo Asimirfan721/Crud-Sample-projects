@@ -2,17 +2,17 @@
 
 <?php 
 //login page 
-session_start();
+session_start(); // session
 
 //check if form is submitted
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //GET FORM INPUT VALUES AND REMOVE UNCESSARY SPACES
-    $email= trim($_POST["email"]);
+    $email= trim($_POST["email"]); // email required
     $password = trim($_POST["password"]);
 }
 
-$email = isset($email) ? $email : '';
+$email = isset($email) ? $email : ''; 
 $password = isset($password) ? $password : '';
 
 if(empty($email) || empty ($password)){
@@ -20,14 +20,14 @@ if(empty($email) || empty ($password)){
     }
     else{
         //connect to the database 
-        $conn = new Mysqli("localhost", "root", "", "user_db");
+        $conn = new Mysqli("localhost", "root", "", "user_db"); // database connection
         //cehc databasee connection 
         if($conn->connect_error){
             die("connection failed: " . $conn->connect_error);
         }
-        $sql ="SELECT id, username, password From users where email ='$email'";
+        $sql ="SELECT id, username, password From users where email ='$email'"; // sql query matches
         $result = $conn->query($sql);
-        // check if user exists
+        // check if user exists here
 
         if($result->num_rows == 1){
             //fetch the user details

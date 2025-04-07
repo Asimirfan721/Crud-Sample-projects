@@ -4,15 +4,15 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
 }
-
+ // dashboard view  here
 $conn = new mysqli("localhost", "root", "", "user_db");
 $username = $_SESSION['username'];
-
+// this is a comment
 $sql = "SELECT role FROM users WHERE username='$username'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$role = $row['role']; // Get user role
-
+$role = $row['role']; // Get user role admin
+ // closing 
 $conn->close();
 ?>
 
